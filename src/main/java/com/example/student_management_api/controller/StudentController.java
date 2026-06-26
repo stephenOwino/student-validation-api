@@ -26,4 +26,9 @@ public class StudentController {
     public Student saveStudent(@RequestBody Student student){
        return studentService.saveStudent(student);
     }
+    @PutMapping
+    public Student updateStudent(@RequestBody Student student){
+        return studentService.updateStudent(student);
+
+    }
 }

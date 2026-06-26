@@ -21,9 +21,18 @@ public class StudentService {
             return repository.save(student);
         }
     }
-    // Inside your StudentService.java, add this method:
     public List<Student> getAllStudents() {
         return repository.findAll();
+    }
+
+    public Student updateStudent(Student student){
+        repository.findById(student.getId())
+                .orElseThrow(()-> new IllegalArgumentException("Student not found!"));
+
+        if (student.getGPA() < 2.0){
+            throw new IllegalArgumentException("GPA too low!");
+        }
+        return repository.save(student);
     }
 
 }
