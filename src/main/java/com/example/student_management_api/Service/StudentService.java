@@ -34,5 +34,12 @@ public class StudentService {
         }
         return repository.save(student);
     }
+    public void deleteStudent(String id){
+        repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Student not found!"));
+
+        repository.deleteById(id);
+
+    }
 
 }
